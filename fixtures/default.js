@@ -63,7 +63,10 @@ module.exports = _.merge({
              */
             input: {
                 //Replace VAR1 with the name of an expected input, and add more inputs as needed.
-                VAR1: 'foo'
+                userId: 'gmail_mail@gmail.com',
+                labelListVisibility: 'labelShow',
+                messageListVisibility: 'show',
+                name: 'customLabel1'
             }
         }
     }

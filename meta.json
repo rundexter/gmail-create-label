@@ -5,22 +5,41 @@
     //Required. Inputs the module expects.
     "inputs": [
         //e.g.
-        /*
         {
-            "id": "from",
-            "title":"From"
+            "id": "userId",
+            "title":"The user's email address"
+        },
+        {
+            "id": "labelListVisibility",
+            "title":"The visibility of the label in the label list in the Gmail web interface"
+        },
+        {
+            "id": "messageListVisibility",
+            "title":"The visibility of messages with this label in the message list in the Gmail web interface"
+        },
+        {
+            "id": "name",
+            "title":"The display name of the label"
         }
-        */
     ],
     //Required. Outputs the module emits.
     "outputs": [
-      //e.g.
-      /*
         {
-            "id": "from",
-            "title":"From"
-        }
-      */
+            "id": "id",
+            "title":"ID"
+        },
+        {
+            "id": "name",
+            "title":"name"
+        },
+        {
+            "id": "labelListVisibility",
+            "title":"labelListVisibility"
+        },
+        {
+            "id": "messageListVisibility",
+            "title":"messageListVisibility"
+        },
     ],
     "title": "Google Create Label" /* Required.A display name for the module */
 }
