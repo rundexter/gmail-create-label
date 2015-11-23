@@ -39,7 +39,8 @@
         {
             "id": "messageListVisibility",
             "title":"messageListVisibility"
-        },
+        }
     ],
-    "title": "Google Create Label" /* Required.A display name for the module */
+    /* Required.A display name for the module */
+    "title": "Google Create Label"
 }
