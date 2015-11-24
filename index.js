@@ -30,14 +30,6 @@ module.exports = {
         oauth2Client.setCredentials({access_token: dexter.environment('access_token'), refresh_token: dexter.environment('refresh_token')});
 
         google.options({ auth: oauth2Client });
-        console.log({
-            auth: oauth2Client,
-            userId: step.input('userId', null).first(),
-            resource: {
-                name: step.input('name').first(),
-                labelListVisibility: step.input('removeLabelIds').first(),
-                messageListVisibility: step.input('messageListVisibility').first()
-            }});
         google.gmail('v1').users.labels.create({
             auth: oauth2Client,
             userId: step.input('userId', null).first(),
