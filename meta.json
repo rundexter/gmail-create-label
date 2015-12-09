@@ -41,6 +41,7 @@
             "title":"messageListVisibility"
         }
     ],
+    "icon": "google-plus",
     /* Required.A display name for the module */
     "title": "Google Create Label"
 }
