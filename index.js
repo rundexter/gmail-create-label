@@ -2,6 +2,8 @@ var _ = require('lodash'),
   google = require('googleapis'),
   OAuth2 = google.auth.OAuth2;
 
+  var inpData = ['name', 'labelListVisibility', 'messageListVisibility'];
+
 module.exports = {
     checkAuthOptions: function (step, dexter) {
 
@@ -10,9 +12,9 @@ module.exports = {
             this.fail('A userId input variable is required for this module');
         }
 
-        if(!dexter.environment('google_access_token')) {
+        if(!dexter.environment('google_access_token') || !dexter.environment('google_refresh_token')) {
 
-            this.fail('A google_access_token environment variable is required for this module');
+            this.fail('A google_access_token,google_refresh_token environment variable is required for this module');
         }
     },
 
@@ -29,15 +31,19 @@ module.exports = {
         var oauth2Client = new OAuth2();
         oauth2Client.setCredentials({access_token: dexter.environment('google_access_token'), refresh_token: dexter.environment('google_refresh_token')});
 
+        var formData = {};
+
+        _.map(inpData, function (attrName) {
+          if (step.input(attrName).first() !== null)
+            formData[attrName] = _(step.input(attrName).first()).toString().trim();
+        });
+
         google.options({ auth: oauth2Client });
         google.gmail('v1').users.labels.create({
             auth: oauth2Client,
             userId: step.input('userId', null).first(),
-            resource: {
-                name: step.input('name').first(),
-                labelListVisibility: step.input('labelListVisibility').first(),
-                messageListVisibility: step.input('messageListVisibility').first()
-            }}, function (err, message) {
+            resource: formData
+          }, function (err, message) {
 
             err? this.fail(err) : this.complete(message);
         }.bind(this));
