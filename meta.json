@@ -41,7 +41,14 @@
             "title":"messageListVisibility"
         }
     ],
+    "providers": [{
+        "name": "google",
+        "scopes": [
+            "https://mail.google.com/",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "https://www.googleapis.com/auth/gmail.labels"
+        ]
+    }],
     "icon": "google-plus",
-    /* Required.A display name for the module */
     "title": "Google Create Label"
 }

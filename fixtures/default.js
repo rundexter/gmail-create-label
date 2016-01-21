@@ -66,7 +66,7 @@ module.exports = _.merge({
                 userId: 'gmail_mail@gmail.com',
                 labelListVisibility: 'labelShow',
                 messageListVisibility: 'show',
-                name: 'customLabel1'
+                name: 'testLabel'
             }
         }
     }
